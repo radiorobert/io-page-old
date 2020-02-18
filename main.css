@@ -17,6 +17,11 @@ figure {
  margin:0;
  padding:0
 }
+
+h1#robert-blake{
+  background-color: coral;
+}
+
 body {
  font-family:-apple-system,BlinkMacSystemFont,Helvetica,Arial,sans-serif;
  font-size:14px;
@@ -69,14 +74,14 @@ h6 {
  font-weight:400
 }
 a {
- color:#deeafa;
+ color:coral;
  text-decoration:none
 }
 a:visited {
- color:#9ac0f1
+ color:#e35d52;
 }
 a:hover {
- color:#f7f7f7;
+ color:#dea249;
  text-decoration:underline
 }
 a.subtle-a {
