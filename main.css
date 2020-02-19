@@ -201,7 +201,7 @@ pre>code {
 .footer-col {
  float:left;
  margin-bottom:15px;
- padding-left:15px
+ /* padding-left:15px */
 }
 .footer-col-1 {
  width:-webkit-calc(35% - (30px / 2));
