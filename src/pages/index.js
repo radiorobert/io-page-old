@@ -1,7 +1,10 @@
 import * as React from "react";
+
+import { graphql } from "gatsby";
 import Card from '../components/Card';
 import { createGlobalStyle } from 'styled-components';
 import styled from 'styled-components';
+
 
 const GlobalStyle = createGlobalStyle`
   html {
@@ -22,9 +25,15 @@ const App = styled.div`
 
 const Grid = styled.div`
   display: grid;
-  grid-template-columns: 600px 50px;
-  grid-template-rows: 375px 50px 50px;
-  grid-column-gap: 25px;
+
+  @media (min-width: 1024px) {
+    grid-template-columns: 425px 250px 250px;
+    grid-template-rows: 425px 200px 200px;
+  }
+
+
+  grid-column-gap: 16px;
+  grid-column-gap: 16px;
 `;
 
 let maincontent = (
@@ -52,23 +61,10 @@ let maincontent = (
   </>
 );
 
-let socialStuff = (
-  <>
-    <p>
-    </p>
-
-    <p>
-    </p>
-
-
-    <p>
-    </p>
-  </>
-);
-
 
 // markup
-const IndexPage = () => {
+const IndexPage = ({ data }) => {
+
   return (
     <App>
       <GlobalStyle/>
@@ -79,9 +75,31 @@ const IndexPage = () => {
             content={maincontent}
           />
 
+          {
+           data.allStrapiPost.edges.map((post) => (
+             <Card
+               title={post.node.Title}
+             />
+           ))}
+
         </Grid>
     </App>
   );
 };
 
 export default IndexPage;
+
+export const query = graphql`
+  {
+    allStrapiPost {
+      edges {
+        node {
+          id
+          Title
+          Content
+        }
+      }
+    }
+  }
+`;
+
